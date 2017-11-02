@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE2887281FAB186C00CFDC67 /* HHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2887271FAB186C00CFDC67 /* HHTableView.m */; };
 		FE9CB5FB1FAA9F9B0073B8B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9CB5FA1FAA9F9B0073B8B9 /* AppDelegate.m */; };
 		FE9CB5FE1FAA9F9B0073B8B9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9CB5FD1FAA9F9B0073B8B9 /* ViewController.m */; };
 		FE9CB6011FAA9F9B0073B8B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE9CB5FF1FAA9F9B0073B8B9 /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE2887261FAB186C00CFDC67 /* HHTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTableView.h; sourceTree = "<group>"; };
+		FE2887271FAB186C00CFDC67 /* HHTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTableView.m; sourceTree = "<group>"; };
 		FE9CB5F61FAA9F9B0073B8B9 /* HHPopMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHPopMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9CB5F91FAA9F9B0073B8B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE9CB5FA1FAA9F9B0073B8B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 			children = (
 				FE9CB6101FAAA17C0073B8B9 /* HHPopMenu.h */,
 				FE9CB6111FAAA17C0073B8B9 /* HHPopMenu.m */,
+				FE2887261FAB186C00CFDC67 /* HHTableView.h */,
+				FE2887271FAB186C00CFDC67 /* HHTableView.m */,
 			);
 			path = HHPopMenu;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				FE9CB6091FAA9F9B0073B8B9 /* main.m in Sources */,
 				FE9CB6121FAAA17C0073B8B9 /* HHPopMenu.m in Sources */,
 				FE9CB5FB1FAA9F9B0073B8B9 /* AppDelegate.m in Sources */,
+				FE2887281FAB186C00CFDC67 /* HHTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

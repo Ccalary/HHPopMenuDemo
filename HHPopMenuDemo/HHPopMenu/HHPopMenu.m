@@ -60,24 +60,34 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    //获得处理的上下文
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    //开始位置
+//    //获得处理的上下文
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    //开始位置
     CGFloat startX = self.origin.x;
     CGFloat startY = self.origin.y;
-    //开始一个起始路径
-    CGContextBeginPath(context);
-    //起始点设置为(0,0):注意这是上下文对应区域中的相对坐标，
-    CGContextMoveToPoint(context, startX, startY);
-    //设置下一个坐标点
-    CGContextAddLineToPoint(context, startX-TRIANGLE_HEIGHT, startY+TRIANGLE_HEIGHT);
-    //设置下一个坐标点
-    CGContextAddLineToPoint(context, startX+TRIANGLE_HEIGHT, startY+TRIANGLE_HEIGHT);
+//    //开始一个起始路径
+//    CGContextBeginPath(context);
+//    //起始点设置为(0,0):注意这是上下文对应区域中的相对坐标，
+//    CGContextMoveToPoint(context, startX, startY);
+//    //设置下一个坐标点
+//    CGContextAddLineToPoint(context, startX-TRIANGLE_HEIGHT, startY+TRIANGLE_HEIGHT);
+//    //设置下一个坐标点
+//    CGContextAddLineToPoint(context, startX+TRIANGLE_HEIGHT, startY+TRIANGLE_HEIGHT);
+//
+//    CGContextClosePath(context);
+//    [self.holdView.backgroundColor setFill];
+//    [self.backgroundColor setStroke];
+//    CGContextDrawPath(context, kCGPathFillStroke);
     
-    CGContextClosePath(context);
-    [self.holdView.backgroundColor setFill];
-    [self.backgroundColor setStroke];
-    CGContextDrawPath(context, kCGPathFillStroke);
+    UIColor *color = self.holdView.backgroundColor;
+    [color set];
+    
+    UIBezierPath *bezierPath = [UIBezierPath bezierPath];
+    [bezierPath moveToPoint:CGPointMake(startX, startY)];
+    [bezierPath addLineToPoint:CGPointMake(startX-TRIANGLE_HEIGHT, startY+TRIANGLE_HEIGHT)];
+    [bezierPath addLineToPoint:CGPointMake(startX+TRIANGLE_HEIGHT, startY+TRIANGLE_HEIGHT)];
+    [bezierPath closePath];
+    [bezierPath fill];
 }
 
 - (void)popView{
@@ -120,6 +130,7 @@
     }];
 }
 
+//点击消失
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     //如果触摸的不是holdView则隐藏
