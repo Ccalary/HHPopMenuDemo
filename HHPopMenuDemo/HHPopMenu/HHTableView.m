@@ -7,6 +7,7 @@
 //
 
 #import "HHTableView.h"
+#import "HHTableViewCell.h"
 
 @interface HHTableView()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -15,7 +16,7 @@
 @implementation HHTableView
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]){
-        
+        [self initView];
     }
     return self;
 }
@@ -45,22 +46,5 @@
     
     return cell;
 }
-
 @end
 
-/** HHTableViewCell **/
-@implementation HHTableViewCell
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
-        
-    }
-    return self;
-}
-
-- (void)initView{
-    UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, (self.frame.size.height - 30)/2.0, 30, 30)];
-    iconImageView.image = [UIImage imageNamed:@"write_24"];
-    [self.contentView addSubview:iconImageView];
-    
-}
-@end

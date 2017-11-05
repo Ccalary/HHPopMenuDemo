@@ -49,7 +49,7 @@
         case 1003://按钮3
         {
             CGPoint point = CGPointMake(sender.center.x, CGRectGetMaxY(sender.frame));
-            HHPopMenu *popMenu = [[HHPopMenu alloc] initWithOrigin:point Width:150 Height:200];
+            HHPopMenu *popMenu = [[HHPopMenu alloc] initWithOrigin:point Width:100 Height:200];
             [popMenu popView];
         }
             break;

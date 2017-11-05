@@ -7,6 +7,7 @@
 //
 
 #import "HHPopMenu.h"
+#import "HHTableView.h"
 
 #define HSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define HSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -17,6 +18,7 @@
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, strong) UIView *holdView;
+@property (nonatomic, strong) HHTableView *tableView;
 @end
 
 @implementation HHPopMenu
@@ -54,7 +56,15 @@
     self.holdView = [[UIView alloc] initWithFrame:CGRectMake(self.origin.x, self.origin.y, self.width, self.height)];
     self.holdView.backgroundColor = self.setting.backgroundColor;
     self.holdView.layer.cornerRadius = self.setting.cornerRadius;
+    [self.holdView addSubview:self.tableView];
     [self addSubview:self.holdView];
+}
+
+- (HHTableView *)tableView{
+    if (!_tableView){
+        _tableView = [[HHTableView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
+    }
+    return _tableView;
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -102,7 +112,6 @@
     self.alpha = 0;
     
     CGFloat offsetX = self.origin.x - self.width/2.0;//偏移量,局中
-    
     if (offsetX < self.setting.minMargin){//左侧
         offsetX = self.setting.minMargin;
     }else if ((offsetX + self.width) > (HSCREEN_WIDTH - self.setting.minMargin)){//右侧
@@ -110,9 +119,11 @@
     }
     
     self.holdView.frame = CGRectMake(self.origin.x, self.origin.y+TRIANGLE_HEIGHT, 0, 0);
+    self.tableView.frame = CGRectZero;
     [UIView animateWithDuration:0.2 animations:^{
         self.alpha = 1;
         self.holdView.frame = CGRectMake(offsetX, self.origin.y+TRIANGLE_HEIGHT, self.width,self. height);
+        self.tableView.frame = CGRectMake(0, 0, self.width, self.height);
     }completion:^(BOOL finished) {
         [self hiddenAllSubViews:NO];
     }];
